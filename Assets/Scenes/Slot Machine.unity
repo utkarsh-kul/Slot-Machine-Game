@@ -316,6 +316,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 222001232}
+  - component: {fileID: 222001233}
   m_Layer: 5
   m_Name: Slot Machine
   m_TagString: Untagged
@@ -337,6 +338,7 @@ RectTransform:
   m_Children:
   - {fileID: 716237496}
   - {fileID: 200112774}
+  - {fileID: 373588044}
   m_Father: {fileID: 422017314}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -344,6 +346,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &222001233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222001231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ab062e09b0658f4fa019a59073e65bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SlotMachineController
+  reel1: {fileID: 709390019}
+  reel2: {fileID: 403612642}
+  reel3: {fileID: 1064346760}
+  resultEvaluator: {fileID: 373588043}
 --- !u!1 &244706610
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,6 +630,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 369865718}
   m_CullTransparentMesh: 1
+--- !u!1 &373588042
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 373588044}
+  - component: {fileID: 373588043}
+  m_Layer: 5
+  m_Name: ResultEvaluator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &373588043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373588042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88033976e729ce4e8df495c401f08a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SlotResultEvaluator
+--- !u!224 &373588044
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373588042}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 222001232}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &388078799
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,6 +763,7 @@ GameObject:
   m_Component:
   - component: {fileID: 403612640}
   - component: {fileID: 403612641}
+  - component: {fileID: 403612642}
   m_Layer: 5
   m_Name: Reel2
   m_TagString: Untagged
@@ -738,6 +805,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RectMask2D
   m_Padding: {x: 0, y: 0, z: 0, w: 0}
   m_Softness: {x: 0, y: 0}
+--- !u!114 &403612642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403612639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f969a6733421e694d880161bbdeacb6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReelController
+  symbolStrip: {fileID: 2140055809}
+  spinDuration: 3
+  spinSpeed: 900
+  symbolSpacing: 125
+  symbolHeight: 100
+  reelHeight: 323
+  symbolCount: 8
+  symbolSequence: 0000000001000000020000000300000000000000010000000200000003000000
 --- !u!1 &422017310
 GameObject:
   m_ObjectHideFlags: 0
@@ -1472,6 +1559,11 @@ MonoBehaviour:
   symbolStrip: {fileID: 590386070}
   spinDuration: 1.5
   spinSpeed: 1200
+  symbolSpacing: 125
+  symbolHeight: 100
+  reelHeight: 323
+  symbolCount: 8
+  symbolSequence: 0000000001000000020000000300000000000000010000000200000003000000
 --- !u!1 &716237495
 GameObject:
   m_ObjectHideFlags: 0
@@ -1576,7 +1668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b8756fbed55e404ba7c98ba6dbc750a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ReelTest
-  reel: {fileID: 709390019}
+  slotMachine: {fileID: 222001233}
 --- !u!4 &725848526
 Transform:
   m_ObjectHideFlags: 0
@@ -1902,6 +1994,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1064346758}
   - component: {fileID: 1064346759}
+  - component: {fileID: 1064346760}
   m_Layer: 5
   m_Name: Reel3
   m_TagString: Untagged
@@ -1943,6 +2036,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RectMask2D
   m_Padding: {x: 0, y: 0, z: 0, w: 0}
   m_Softness: {x: 0, y: 0}
+--- !u!114 &1064346760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064346757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f969a6733421e694d880161bbdeacb6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ReelController
+  symbolStrip: {fileID: 290860934}
+  spinDuration: 3
+  spinSpeed: 900
+  symbolSpacing: 125
+  symbolHeight: 100
+  reelHeight: 323
+  symbolCount: 8
+  symbolSequence: 0000000001000000020000000300000000000000010000000200000003000000
 --- !u!1 &1131216976
 GameObject:
   m_ObjectHideFlags: 0

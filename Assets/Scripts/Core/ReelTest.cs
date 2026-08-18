@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class ReelTest : MonoBehaviour
 {
-    [SerializeField] private ReelController reel;
+    [SerializeField] private SlotMachineController slotMachine;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            reel.Spin();
+            slotMachine.SpinAll();
         }
     }
 }
