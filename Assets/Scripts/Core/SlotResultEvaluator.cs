@@ -1,9 +1,11 @@
+using TMPro;
 using UnityEngine;
 
 public class SlotResultEvaluator : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private SlotMachineEconomy economy;
+    [SerializeField] private TMP_Text resultText;
 
     [Header("Payouts")]
     [SerializeField] private int sevenPayout = 100;
@@ -40,12 +42,14 @@ public class SlotResultEvaluator : MonoBehaviour
         }
         else
         {
+            resultText.text = "NO WIN";
             Debug.Log("No Win");
         }
     }
 
     private void Win(string message, int payout)
     {
+        resultText.text = message + "\n+" + payout;
         Debug.Log(message + " | Payout: " + payout);
 
         economy.AddCredits(payout);
