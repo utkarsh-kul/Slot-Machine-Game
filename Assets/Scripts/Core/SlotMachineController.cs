@@ -11,10 +11,20 @@ public class SlotMachineController : MonoBehaviour
     [Header("Result")]
     [SerializeField] private SlotResultEvaluator resultEvaluator;
 
+    [Header("Economy")]
+    [SerializeField] private SlotMachineEconomy economy;
+
     public void SpinAll()
     {
         if (reel1.IsSpinning || reel2.IsSpinning || reel3.IsSpinning)
             return;
+
+        // Check if the player can afford the spin.
+        if (!economy.SpendForSpin())
+        {
+            Debug.Log("Not enough credits to spin.");
+            return;
+        }
 
         StartCoroutine(SpinSequence());
     }

@@ -2,6 +2,15 @@ using UnityEngine;
 
 public class SlotResultEvaluator : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] private SlotMachineEconomy economy;
+
+    [Header("Payouts")]
+    [SerializeField] private int sevenPayout = 100;
+    [SerializeField] private int cherryPayout = 50;
+    [SerializeField] private int bellPayout = 30;
+    [SerializeField] private int barPayout = 20;
+
     public void Evaluate(
         SymbolType reel1Result,
         SymbolType reel2Result,
@@ -13,19 +22,19 @@ public class SlotResultEvaluator : MonoBehaviour
             switch (reel1Result)
             {
                 case SymbolType.Seven:
-                    Debug.Log("JACKPOT! 7 - 7 - 7");
+                    Win("JACKPOT! 7 - 7 - 7", sevenPayout);
                     break;
 
                 case SymbolType.Cherry:
-                    Debug.Log("BIG WIN! Cherry - Cherry - Cherry");
+                    Win("BIG WIN! Cherry - Cherry - Cherry", cherryPayout);
                     break;
 
                 case SymbolType.Bell:
-                    Debug.Log("WIN! Bell - Bell - Bell");
+                    Win("WIN! Bell - Bell - Bell", bellPayout);
                     break;
 
                 case SymbolType.Bar:
-                    Debug.Log("WIN! BAR - BAR - BAR");
+                    Win("WIN! BAR - BAR - BAR", barPayout);
                     break;
             }
         }
@@ -33,5 +42,12 @@ public class SlotResultEvaluator : MonoBehaviour
         {
             Debug.Log("No Win");
         }
+    }
+
+    private void Win(string message, int payout)
+    {
+        Debug.Log(message + " | Payout: " + payout);
+
+        economy.AddCredits(payout);
     }
 }

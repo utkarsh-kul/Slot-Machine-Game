@@ -317,6 +317,7 @@ GameObject:
   m_Component:
   - component: {fileID: 222001232}
   - component: {fileID: 222001233}
+  - component: {fileID: 222001234}
   m_Layer: 5
   m_Name: Slot Machine
   m_TagString: Untagged
@@ -362,6 +363,21 @@ MonoBehaviour:
   reel2: {fileID: 403612642}
   reel3: {fileID: 1064346760}
   resultEvaluator: {fileID: 373588043}
+  economy: {fileID: 222001234}
+--- !u!114 &222001234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222001231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07757eae436e8c74dbab67c222b50329, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SlotMachineEconomy
+  startingCredits: 100
+  spinCost: 10
 --- !u!1 &244706610
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,6 +675,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c88033976e729ce4e8df495c401f08a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotResultEvaluator
+  economy: {fileID: 222001234}
+  sevenPayout: 100
+  cherryPayout: 50
+  bellPayout: 30
+  barPayout: 20
 --- !u!224 &373588044
 RectTransform:
   m_ObjectHideFlags: 0
