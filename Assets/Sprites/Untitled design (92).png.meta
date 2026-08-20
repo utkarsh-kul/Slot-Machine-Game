@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d6c4d7ddcf27c58418a25778bcf84860
+guid: 3b47c0ca3116c014293fe9cdf154b8ce
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1864720231984191186
-    second: slot-machine2_0
+      213: -8264336400213684084
+    second: Untitled design (92)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: slot-machine2_0
+      name: Untitled design (92)_0
       rect:
         serializedVersion: 2
-        x: 672
-        y: 57
-        width: 94
-        height: 272
+        x: 46
+        y: 114
+        width: 304
+        height: 172
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2d6d6e8db21d0e910800000000000000
-      internalID: 1864720231984191186
+      spriteID: c80dee094dd2f4d80800000000000000
+      internalID: -8264336400213684084
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      slot-machine2_0: 1864720231984191186
+      Untitled design (92)_0: -8264336400213684084
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
