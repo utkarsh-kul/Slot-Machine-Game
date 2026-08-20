@@ -9,6 +9,6 @@ public class SlotMachineUI : MonoBehaviour
 
     private void Update()
     {
-        creditsText.text = "Credits: " + economy.CurrentCredits;
+        creditsText.text = economy.CurrentCredits.ToString();
     }
 }
