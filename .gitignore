@@ -6,8 +6,10 @@
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
-/[Bb]uild/
+/[Bb]uild/*
 /[Bb]uilds/
+!/[Bb]uild/WebGL/
+!/[Bb]uild/WebGL/**
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 *.log
