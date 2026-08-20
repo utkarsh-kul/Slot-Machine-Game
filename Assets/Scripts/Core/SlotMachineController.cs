@@ -22,6 +22,9 @@ public class SlotMachineController : MonoBehaviour
 
     [SerializeField] private float leverPressDuration = 0.15f;
 
+    [Header("Audio")]
+    [SerializeField] private SlotMachineAudio audioController;
+
     public void SpinAll()
     {
         // Don't start another spin while reels are running.
@@ -42,6 +45,7 @@ public class SlotMachineController : MonoBehaviour
     {
         // Press lever visually
         leverImage.sprite = leverPressedSprite;
+        audioController.PlayLeverPull();
 
         yield return new WaitForSeconds(leverPressDuration);
 

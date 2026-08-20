@@ -6,6 +6,7 @@ public class SlotResultEvaluator : MonoBehaviour
     [Header("References")]
     [SerializeField] private SlotMachineEconomy economy;
     [SerializeField] private TMP_Text resultText;
+    [SerializeField] private SlotMachineAudio audioController;
 
     [Header("Payouts")]
     [SerializeField] private int sevenPayout = 100;
@@ -24,7 +25,7 @@ public class SlotResultEvaluator : MonoBehaviour
             switch (reel1Result)
             {
                 case SymbolType.Seven:
-                    Win("JACKPOT! 7 - 7 - 7", sevenPayout);
+                    Jackpot("JACKPOT! 7 - 7 - 7", sevenPayout);
                     break;
 
                 case SymbolType.Cherry:
@@ -53,5 +54,15 @@ public class SlotResultEvaluator : MonoBehaviour
         Debug.Log(message + " | Payout: " + payout);
 
         economy.AddCredits(payout);
+        audioController.PlayWin();
+    }
+
+    private void Jackpot(string message, int payout)
+    {
+        resultText.text = message + "\n+" + payout;
+        Debug.Log(message + " | Payout: " + payout);
+
+        economy.AddCredits(payout);
+        audioController.PlayJackpot();
     }
 }

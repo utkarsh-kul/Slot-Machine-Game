@@ -5,6 +5,7 @@ public class ReelController : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private RectTransform symbolStrip;
+    [SerializeField] private SlotMachineAudio audioController;
 
     [Header("Spin Settings")]
     [SerializeField] private float spinDuration = 3f;
@@ -56,6 +57,8 @@ public class ReelController : MonoBehaviour
     {
         isSpinning = true;
 
+        audioController.PlayReelSpin();
+
         float startY = symbolStrip.anchoredPosition.y;
 
         // The selected symbol's normal position.
@@ -104,6 +107,7 @@ public class ReelController : MonoBehaviour
             );
 
         isSpinning = false;
+        audioController.PlayReelStop();
     }
 
     private void RecycleSymbols()
